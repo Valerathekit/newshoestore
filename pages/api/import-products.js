@@ -8,23 +8,21 @@ export default async function handler(req, res) {
     const response = await axios.get('https://forsage.docs.apiary.io/api/products');
     const products = response.data;
 
+    // Добавь эту строку для проверки данных
+    console.log(products); 
+
     for (const product of products) {
-      // Проверка наличия id и name
-      if (product.id && product.name) {
-        await prisma.product.upsert({
-          where: { id: product.id },
-          update: {},
-          create: {
-            id: product.id,
-            name: product.name,
-            description: product.description || '',
-            price: product.price || 0,
-            stock: product.stock || 0,
-          },
-        });
-      } else {
-        console.warn(`Пропущен товар из-за отсутствия id или name:`, product);
-      }
+      await prisma.product.upsert({
+        where: { id: product.id },
+        update: {},
+        create: {
+          id: product.id,
+          name: product.name,
+          description: product.description || '',
+          price: product.price || 0,
+          stock: product.stock || 0,
+        },
+      });
     }
 
     res.status(200).json({ message: 'Импорт товаров завершён!' });
