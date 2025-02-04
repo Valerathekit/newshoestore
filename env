@@ -1,2 +1,3 @@
 
-DATABASE_URL="postgresql://postgres:2385Valera2385@db.ubhtzszkrkilhsirsdb.supabase.co:6543/postgres?sslmode=require"
+postgresql://postgres.ubhtzszkrkilhsirsdb:2385Valera2385@db.ubhtzszkrkilhsirsdb.supabase.co:6543/postgres
+
