@@ -8,11 +8,10 @@ export default async function handler(req, res) {
     const response = await axios.get('https://forsage.docs.apiary.io/api/products');
     const products = response.data;
 
-    // Выводим данные в консоль для анализа
-    console.log('Полученные продукты:', products);
+    console.log('Полученные продукты:', products); // Посмотрим, что приходит с API
 
     for (const product of products) {
-      console.log('Обрабатываем продукт:', product); // Проверим каждый продукт отдельно
+      console.log('Обрабатываем продукт:', product); // Проверим каждый продукт
 
       await prisma.product.upsert({
         where: { id: product.id },
