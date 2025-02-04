@@ -25,6 +25,10 @@ export default async function handler(req, res) {
     res.status(200).json({ message: 'Импорт товаров завершен!' });
   } catch (error) {
     console.error('Ошибка при импорте:', error);
-    res.status(500).json({ error: error.message });
+
+    res.status(500).json({ 
+      error: error.message,
+      details: error.response ? error.response.data : 'Нет дополнительных данных',
+    });
   }
 }
