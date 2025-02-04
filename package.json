@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma": "prisma"
   },
   "dependencies": {
     "next": "latest",
@@ -14,7 +15,8 @@
     "react-dom": "latest",
     "tailwindcss": "^3.0.0",
     "prisma": "^4.0.0",
-    "@prisma/client": "^4.0.0"
+    "@prisma/client": "^4.0.0",
+    "axios": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
